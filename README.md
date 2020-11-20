@@ -6,6 +6,6 @@ File `FrankWolfe.py` includes the `frank_wolfe()` class for minimizing a convex 
 
 The main file `fw_main.py` demonstrates an exxample of running the Frank-Wolfe algorithm for the function specified in `min_fun()`. Parameters like the variable bounds and constraint weight matrix and upper bounds are defined in a way similar to that of `scipy.optimize.linprog()`, which is used for solving the linear programs.
 
-An optimality gap comparison with scipy's convex solver is produced graphically (as shown below) which in theory is ![equation](O(1/ε) where ε is the number of Frank-Wolfe iterations. 
+An optimality gap comparison with scipy's convex solver is produced graphically (as shown below) which in theory is (O(1/ε) where ε is the number of Frank-Wolfe iterations. 
 
-![Screenshot](Training_accuracy.jpg)
+![Screenshot](opt_gap.jpg)
