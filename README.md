@@ -8,4 +8,4 @@ The main file `fw_main.py` demonstrates an exxample of running the Frank-Wolfe a
 
 An optimality gap comparison with scipy's convex solver is produced graphically (as shown below) which in theory is (O(1/ε) where ε is the number of Frank-Wolfe iterations. 
 
-![Screenshot](opt_gap.jpg)
+![Screenshot](opt_gap.jpeg)
