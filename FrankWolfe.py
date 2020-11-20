@@ -1,6 +1,7 @@
 from scipy.optimize import linprog
 import numdifftools as nd
 import numpy as np
+import time
 
 
 class frank_wolfe():
@@ -18,15 +19,18 @@ class frank_wolfe():
         self.s_t = []
         self.f_t = []
         self.violation = 0
+        self.time = 0
         
     def __repr__(self):
         out = 'f_min: '+str(self.f_min)+'\n' + \
                 'x_min: '+str(self.x_min)+'\n' + \
-                'violation: '+str(self.violation)
+                'violation: '+str(self.violation)+'\n' + \
+                'time: '+str(self.time)
         return out
 
     def optimize(self):
         x = self.x0
+        t1 = time.time()
         for i in range(0,self.iterations):
             gamma = 2 / (i+2)
             grad_def = nd.Gradient(self.min_fun)
@@ -40,7 +44,9 @@ class frank_wolfe():
             x = x + gamma*(s-x)
             self.f_t.append(self.min_fun(x))
             self.x_t.append(x)
-            
+        t2 = time.time()
+        self.time = t2 - t1
+        
         constraints = np.dot(self.A,x) - self.b
         self.violation = np.sum([i for i in constraints if i > 0])
         self.x_min = x
