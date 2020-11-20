@@ -10,7 +10,6 @@ def min_fun(x):
     """The function to minimize"""
     return 15*(x[0]-1)**2 + x[1]**2 + 0.5*x[2]**2 + 2*x[0]*x[1] - x[0]*x[2] - 2*x[0] + 6*x[1]
 
-
 # number of constraints and variables
 constr_num = 4
 var_num = 3
@@ -39,7 +38,6 @@ linear_constraint = LinearConstraint(A, lb, ub)
 res = minimize(min_fun, x0, method='trust-constr', jac=nd.Gradient(min_fun),
                 constraints=linear_constraint, bounds=bounds,
                 options={'verbose': 0,'gtol': 1e-8, 'disp': True})
-
 
 # Optimality gap
 f_star = [res.fun for i in range(0,len(results.f_t))]

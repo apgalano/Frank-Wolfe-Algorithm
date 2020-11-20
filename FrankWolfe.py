@@ -3,7 +3,6 @@ import numdifftools as nd
 import numpy as np
 import time
 
-
 class frank_wolfe():
     
     def __init__(self,min_fun,A,b,bounds,x0,iterations=100):
